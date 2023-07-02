@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-	public void registerUser(UserForm userForm){
+	public void registerUser(UserForm userForm) {
 		// 本当はここでデータを登録する
 		System.out.println("以下のユーザーを登録しました");
 		System.out.printf("name=%s%n", userForm.getName());

@@ -6,9 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/user")
 public class UserController {
 	private final UserService userService;
 
@@ -18,15 +21,14 @@ public class UserController {
 	}
 
 	@GetMapping("/input")
-	public String index(UserForm userForm, Model model) {
-		model.addAttribute("userForm", userForm);
+	public String index(Model model) {
+		model.addAttribute("userForm", new UserForm());
 		return "input";
 	}
 
 	@PostMapping("/submit")
-	public String submit(UserForm userForm, Model model) {
+	public String submit(@ModelAttribute UserForm userForm) {
 		this.userService.registerUser(userForm);
-		model.addAttribute("userForm", userForm);
 		return "result";
 	}
 }
