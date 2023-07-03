@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
 <h2>ユーザー情報登録完了</h2>
-<th:block th:object="${userForm}">
-<p th:text="'Name: ' + *{name}"></p>
-<p th:text="'Email: ' + *{email}"></p>
-<p th:text="'Password: ' + *{password}"></p>
+<th:block th:object="${userform}">
+<p th:text="'名前: ' + *{name}"></p>
+<p th:text="'E-mail: ' + *{email}"></p>
+<p th:text="'パスワード: ' + *{password}"></p>
 </th:block>
 </body>
 </html>
